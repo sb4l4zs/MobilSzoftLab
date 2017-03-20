@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     }
 
     @Override
-    public void showMessage(String text) {
+    public void loadItems(String text) {
         Toast.makeText(this, text,Toast.LENGTH_LONG).show();
     }
 }
