@@ -1,4 +1,4 @@
-package hu.bme.iemqra.mobsoft.mobsoft.ui.main;
+package hu.bme.iemqra.mobsoft.mobsoft.ui.login;
 
 import hu.bme.iemqra.mobsoft.mobsoft.ui.Presenter;
 
@@ -6,13 +6,12 @@ import hu.bme.iemqra.mobsoft.mobsoft.ui.Presenter;
  * Created by mobsoft on 2017. 03. 20..
  */
 
-public class MainPresenter extends Presenter<MainScreen> {
-
-    public MainPresenter() {
+public class LoginPresenter extends Presenter<LoginScreen> {
+    public LoginPresenter() {
     }
 
     @Override
-    public void attachScreen(MainScreen screen) {
+    public void attachScreen(LoginScreen screen) {
         super.attachScreen(screen);
     }
 
