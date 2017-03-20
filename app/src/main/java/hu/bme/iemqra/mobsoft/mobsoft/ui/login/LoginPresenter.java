@@ -19,4 +19,8 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     public void detachScreen() {
         super.detachScreen();
     }
+
+    void loginUser(String email, String password){
+
+    }
 }

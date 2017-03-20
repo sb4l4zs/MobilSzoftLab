@@ -19,4 +19,10 @@ public class DetailsPresenter extends Presenter<DetailsScreen> {
     public void detachScreen() {
         super.detachScreen();
     }
+
+    void getDetailsByID(int id){}
+
+    void modifyDetailsByID(int id, String title, String date, String place, String pageUrl, boolean global){}
+
+    void deleteDetailsByID(int id){}
 }

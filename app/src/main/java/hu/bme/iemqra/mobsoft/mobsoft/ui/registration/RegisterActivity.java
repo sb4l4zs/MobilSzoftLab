@@ -36,8 +36,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterSceen
         registerPresenter.detachScreen();
     }
 
+
     @Override
-    public void registerUser(String firstName, String lastName, String email, String password) {
+    public void showError(String text) {
 
     }
 }

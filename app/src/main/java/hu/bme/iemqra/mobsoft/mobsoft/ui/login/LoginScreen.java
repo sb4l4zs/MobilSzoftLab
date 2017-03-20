@@ -5,5 +5,7 @@ package hu.bme.iemqra.mobsoft.mobsoft.ui.login;
  */
 
 public interface LoginScreen {
-    void loginUser(String email, String password);
+    void userLoginOK(String text);
+
+    void userLoginFailed(String text);
 }

@@ -5,5 +5,5 @@ package hu.bme.iemqra.mobsoft.mobsoft.ui.registration;
  */
 
 public interface RegisterSceen {
-    void registerUser(String firstName, String lastName, String email, String password);
+    void showError(String text);
 }

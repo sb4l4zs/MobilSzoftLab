@@ -34,8 +34,14 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         mainPresenter.detachScreen();
     }
 
+
     @Override
-    public void loadItems(String text) {
-        Toast.makeText(this, text,Toast.LENGTH_LONG).show();
+    public void showItems() {
+
+    }
+
+    @Override
+    public void showError(String text) {
+
     }
 }

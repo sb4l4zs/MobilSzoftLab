@@ -5,9 +5,5 @@ package hu.bme.iemqra.mobsoft.mobsoft.ui.details;
  */
 
 public interface DetailsScreen {
-    void getDetailsByID(int id);
-
-    void modifyDetailsByID(int id, String title, String date, String place, String pageUrl, boolean global);
-
-    void deleteDetailsByID(int id);
+    void showError(String text);
 }

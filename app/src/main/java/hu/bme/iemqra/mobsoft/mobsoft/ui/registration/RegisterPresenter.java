@@ -19,4 +19,6 @@ public class RegisterPresenter extends Presenter<RegisterSceen> {
     public void detachScreen() {
         super.detachScreen();
     }
+
+    void registerUser(String firstName, String lastName, String email, String password){}
 }

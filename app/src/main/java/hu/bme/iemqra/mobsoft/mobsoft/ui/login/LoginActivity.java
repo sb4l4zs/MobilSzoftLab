@@ -36,8 +36,14 @@ public class LoginActivity extends AppCompatActivity implements LoginScreen {
         loginPresenter.detachScreen();
     }
 
+
     @Override
-    public void loginUser(String email, String password) {
+    public void userLoginOK(String text) {
+
+    }
+
+    @Override
+    public void userLoginFailed(String text) {
 
     }
 }

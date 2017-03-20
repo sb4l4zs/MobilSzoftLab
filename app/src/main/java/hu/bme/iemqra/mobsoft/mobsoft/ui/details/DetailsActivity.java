@@ -36,18 +36,9 @@ public class DetailsActivity extends AppCompatActivity implements DetailsScreen 
         detailsPresenter.detachScreen();
     }
 
-    @Override
-    public void getDetailsByID(int id) {
-
-    }
 
     @Override
-    public void modifyDetailsByID(int id, String title, String date, String place, String pageUrl, boolean global) {
-
-    }
-
-    @Override
-    public void deleteDetailsByID(int id) {
-
+    public void showError(String text) {
+        
     }
 }
