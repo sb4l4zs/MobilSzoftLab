@@ -38,6 +38,11 @@ public class DetailsActivity extends AppCompatActivity implements DetailsScreen 
 
 
     @Override
+    public void showDetails() {
+
+    }
+
+    @Override
     public void showError(String text) {
         
     }

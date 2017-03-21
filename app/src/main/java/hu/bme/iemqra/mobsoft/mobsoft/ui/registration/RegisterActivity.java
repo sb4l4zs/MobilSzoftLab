@@ -38,6 +38,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterSceen
 
 
     @Override
+    public void navigateToLogin() {
+
+    }
+
+    @Override
     public void showError(String text) {
 
     }

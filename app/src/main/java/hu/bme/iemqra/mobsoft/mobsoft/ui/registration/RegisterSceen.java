@@ -5,5 +5,6 @@ package hu.bme.iemqra.mobsoft.mobsoft.ui.registration;
  */
 
 public interface RegisterSceen {
+    void navigateToLogin();
     void showError(String text);
 }

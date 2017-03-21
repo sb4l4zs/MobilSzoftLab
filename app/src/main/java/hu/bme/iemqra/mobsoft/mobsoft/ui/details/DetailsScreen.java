@@ -5,5 +5,6 @@ package hu.bme.iemqra.mobsoft.mobsoft.ui.details;
  */
 
 public interface DetailsScreen {
+    void showDetails();
     void showError(String text);
 }

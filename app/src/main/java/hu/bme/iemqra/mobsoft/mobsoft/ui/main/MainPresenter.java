@@ -21,7 +21,5 @@ public class MainPresenter extends Presenter<MainScreen> {
         super.detachScreen();
     }
 
-    void loadItems(String text){
-
-    }
+    void loadItems(String text){ }
 }
