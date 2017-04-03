@@ -3,6 +3,9 @@ package hu.bme.iemqra.mobsoft.mobsoft;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import hu.bme.iemqra.mobsoft.mobsoft.interactor.InteractorModule;
+import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.ExamsInteractor;
+import hu.bme.iemqra.mobsoft.mobsoft.repository.RepositoryModule;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.UIModule;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.details.DetailsActivity;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.login.LoginActivity;
@@ -14,7 +17,7 @@ import hu.bme.iemqra.mobsoft.mobsoft.ui.registration.RegisterActivity;
  */
 
 @Singleton
-@Component(modules = {UIModule.class})
+@Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class})
 public interface MobSoftApplicationComponent {
     void inject(MainActivity mainActivity);
 
@@ -23,4 +26,6 @@ public interface MobSoftApplicationComponent {
     void inject(RegisterActivity registerActivity);
 
     void inject(DetailsActivity detailsActivity);
+
+    void inject(ExamsInteractor examsInteractor);
 }

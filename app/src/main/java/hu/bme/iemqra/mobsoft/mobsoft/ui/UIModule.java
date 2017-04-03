@@ -3,10 +3,14 @@ package hu.bme.iemqra.mobsoft.mobsoft.ui;
 import android.content.Context;
 
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import de.greenrobot.event.EventBus;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.details.DetailsPresenter;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.login.LoginPresenter;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.main.MainPresenter;
@@ -51,5 +55,17 @@ public class UIModule {
     @Singleton
     public DetailsPresenter provideDetailsPresenter() {
         return new DetailsPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public EventBus provideEventBus() {
+        return EventBus.getDefault();
+    }
+
+    @Provides
+    @Singleton
+    public Executor provideExecutor() {
+        return Executors.newFixedThreadPool(1);
     }
 }
