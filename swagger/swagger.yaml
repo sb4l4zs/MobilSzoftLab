@@ -1,0 +1,272 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: University calendar API
+  description: Manage your exams in the app
+  version: "1.0.0"
+# the domain of the service
+host: calendar.university.com
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /User/Login:
+    get:
+      description: User login call
+      parameters:
+        - name: email
+          in: query
+          description: User email.
+          required: true
+          type: string
+        - name: password
+          in: query
+          description: User password.
+          required: true
+          type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: A login result.
+          schema:
+            "$ref": "#/definitions/User"
+  /User/Register:
+    post:
+      description: User login call
+      parameters:
+        - name: firstName
+          in: query
+          description: User first name.
+          required: false
+          type: string
+        - name: lastName
+          in: query
+          description: User last name.
+          required: false
+          type: string
+        - name: email
+          in: query
+          description: User email.
+          required: true
+          type: string
+        - name: password
+          in: query
+          description: User password.
+          required: true
+          type: string
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: A login result.
+          schema:
+            "$ref": "#/definitions/User"
+  /Exams/GetExamsByUser:
+    get:
+      description: Get exams belonging to user.
+      parameters:
+        - name: email
+          in: query
+          description: User email.
+          required: true
+          type: string
+        - name: from
+          in: query
+          description: From index.
+          required: true
+          type: number
+        - name: count
+          in: query
+          description: Query amount.
+          required: true
+          type: number
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: A query result.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Exam'
+  /Exams/GetExamDetails:
+    get:
+      description: Get exam details.
+      parameters:
+        - name: id
+          in: query
+          description: Exam id.
+          required: true
+          type: number
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: A query result.
+          schema:
+            "$ref": "#/definitions/Exam"
+  /Exams/AddExam:
+    post:
+      description: Add new exam.
+      parameters:
+        - name: userId
+          in: query
+          description: Publisher id.
+          required: true
+          type: number
+        - name: title
+          in: query
+          description: Exam title.
+          required: true
+          type: string
+        - name: description
+          in: query
+          description: Exam description.
+          required: true
+          type: string
+        - name: date
+          in: query
+          description: Exam date.
+          required: true
+          type: string
+        - name: place
+          in: query
+          description: Exam place.
+          required: true
+          type: string
+        - name: pageUrl
+          in: query
+          description: Exam webpage.
+          required: true
+          type: string          
+        - name: isGlobal
+          in: query
+          description: Exam is global or not.
+          required: true
+          type: boolean
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: A query result.
+          schema:
+            "$ref": "#/definitions/Exam"
+  /Exams/RemoveExam:
+    delete:
+      description: Delete exam by exam id.
+      parameters:
+        - name: id
+          in: query
+          description: Exam id.
+          required: true
+          type: number
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: A query result.
+  /Exams/UpdateExam:
+    post:
+      description: Update existing exam.
+      parameters:
+        - name: title
+          in: query
+          description: Exam title.
+          required: false
+          type: string
+        - name: description
+          in: query
+          description: Exam description.
+          required: false
+          type: string
+        - name: date
+          in: query
+          description: Exam date.
+          required: false
+          type: string
+        - name: place
+          in: query
+          description: Exam place.
+          required: false
+          type: string
+        - name: pageUrl
+          in: query
+          description: Exam webpage.
+          required: false
+          type: string          
+        - name: isGlobal
+          in: query
+          description: Exam is global or not.
+          required: false
+          type: boolean
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: A query result.
+          schema:
+            "$ref": "#/definitions/Exam"
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Unique user id.
+      firstName:
+        type: string
+        description: User first name.
+      lastName:
+        type: string
+        description: User last name.
+      password:
+        type: string
+        description: User password.
+      email:
+        type: string
+        description: User email.
+  Exam:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Unique exam id.
+      userId:
+        type: string
+        description: Exam owner.
+      title:
+        type: string
+        description: Title of the exam.
+      description:
+        type: string
+        description: Description of the exam.
+      date:
+        type: string
+        description: Date of the exam.
+      place:
+        type: string
+        description: Place of the exam.
+      pageUrl:
+        type: string
+        description: PageUrl of the exam.
+      isGlobal:
+        type: boolean
+        description: exam global or not.
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
