@@ -9,6 +9,7 @@ import com.orm.dsl.Table;
 @Table
 public class Exam {
     private Long id = null;
+    private String userId;
     private String title;
     private String description;
     private String date;
@@ -19,8 +20,9 @@ public class Exam {
     public Exam() {
     }
 
-    public Exam(Long id, String title, String description, String date, String place, String pageUrl, boolean isGlobal) {
+    public Exam(Long id, String userId, String title, String description, String date, String place, String pageUrl, boolean isGlobal) {
         this.id = id;
+        this.userId = userId;
         this.title = title;
         this.description = description;
         this.date = date;
@@ -35,6 +37,14 @@ public class Exam {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {

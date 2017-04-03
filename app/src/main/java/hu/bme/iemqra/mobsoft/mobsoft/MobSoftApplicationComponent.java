@@ -5,6 +5,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 import hu.bme.iemqra.mobsoft.mobsoft.interactor.InteractorModule;
 import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.ExamsInteractor;
+import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.UserInteractor;
 import hu.bme.iemqra.mobsoft.mobsoft.repository.RepositoryModule;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.UIModule;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.details.DetailsActivity;
@@ -28,4 +29,6 @@ public interface MobSoftApplicationComponent {
     void inject(DetailsActivity detailsActivity);
 
     void inject(ExamsInteractor examsInteractor);
+
+    void inject(UserInteractor userInteractor);
 }

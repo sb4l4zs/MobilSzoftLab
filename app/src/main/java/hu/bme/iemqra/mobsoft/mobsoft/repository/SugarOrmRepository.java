@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hu.bme.iemqra.mobsoft.mobsoft.model.Exam;
+import hu.bme.iemqra.mobsoft.mobsoft.model.User;
 
 /**
  * Created by mobsoft on 2017. 04. 03..
@@ -24,6 +25,16 @@ public class SugarOrmRepository implements Repository {
     @Override
     public void close() {
         SugarContext.terminate();
+    }
+
+    @Override
+    public User getUser() {
+        return SugarRecord.listAll(User.class).get(0);
+    }
+
+    @Override
+    public void removeUser() {
+        SugarRecord.deleteAll(User.class);
     }
 
     @Override

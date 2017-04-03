@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hu.bme.iemqra.mobsoft.mobsoft.model.Exam;
+import hu.bme.iemqra.mobsoft.mobsoft.model.User;
 
 /**
  * Created by mobsoft on 2017. 04. 03..
@@ -17,11 +18,12 @@ public class MemoryRepository implements Repository {
     private static final long MINUTE = 60 * 1000;
 
     public static List<Exam> exams;
+    public static User user;
 
     @Override
     public void open(Context context) {
-        Exam exam1 = new Exam(1L, "Analizis 1", "masodik zh", "2017.03.20", "E1A", "wwww.analizis.bme.hu", true);
-        Exam exam2 = new Exam(2L, "Ergonomia", "szabval cucc elso zh", "2017.04.20", "AUDMAX", "wwww.ergonomia.bme.hu", false);
+        Exam exam1 = new Exam(1L, "testelek@gmail.com", "Analizis 1", "masodik zh", "2017.03.20", "E1A", "wwww.analizis.bme.hu", true);
+        Exam exam2 = new Exam(2L, "diak@bme.hu", "Ergonomia", "szabval cucc elso zh", "2017.04.20", "AUDMAX", "wwww.ergonomia.bme.hu", false);
 
         exams = new ArrayList<>();
         exams.add(exam1);
@@ -32,6 +34,12 @@ public class MemoryRepository implements Repository {
     public void close() {
 
     }
+
+    @Override
+    public User getUser() { return user; }
+
+    @Override
+    public void removeUser() { user = null; }
 
     @Override
     public List<Exam> getExams() {
