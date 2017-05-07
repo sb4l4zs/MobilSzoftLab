@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <RelativeLayout
+        android:id="@+id/detail_title_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/detail_title_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Title:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/detail_title_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/detail_title_label" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/detail_date_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_title_frame">
+
+        <TextView
+            android:id="@+id/detail_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Date:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/detail_date_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/detail_date_label" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/detail_place_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_date_frame">
+
+        <TextView
+            android:id="@+id/detail_place_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Place:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/detail_place_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/detail_place_label" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/detail_page_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_place_frame">
+
+        <TextView
+            android:id="@+id/detail_page_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Page URL:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/detail_page_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/detail_page_label" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/detail_global_checkbox_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_page_frame">
+
+        <TextView
+            android:id="@+id/detail_global_checkbox_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Make it global:"
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id="@+id/detail_global_checkbox_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/detail_global_checkbox_label" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/detail_button_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dip"
+            android:text="Modify"
+            android:textAllCaps="false" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/detail_button_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dip"
+            android:layout_toLeftOf="@+id/detail_button_modify"
+            android:layout_toStartOf="@+id/detail_button_modify"
+            android:text="Delete"
+            android:textAllCaps="false" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/detail_button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dip"
+            android:layout_toEndOf="@+id/detail_button_modify"
+            android:layout_toRightOf="@+id/detail_button_modify"
+            android:text="Add"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+</RelativeLayout>
