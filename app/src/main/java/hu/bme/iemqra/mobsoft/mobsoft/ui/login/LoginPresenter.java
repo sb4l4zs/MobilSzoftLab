@@ -1,26 +1,62 @@
 package hu.bme.iemqra.mobsoft.mobsoft.ui.login;
 
+import java.util.concurrent.Executor;
+
+import javax.inject.Inject;
+
+import de.greenrobot.event.EventBus;
+import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.UserInteractor;
+import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events.LoginUserEvent;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.Presenter;
 
-/**
- * Created by mobsoft on 2017. 03. 20..
- */
+import static hu.bme.iemqra.mobsoft.mobsoft.MobSoftApplication.injector;
+
 
 public class LoginPresenter extends Presenter<LoginScreen> {
+    @Inject
+    UserInteractor userInteractor;
+
+    @Inject
+    Executor executor;
+
+    @Inject
+    EventBus bus;
+
     public LoginPresenter() {
     }
 
     @Override
     public void attachScreen(LoginScreen screen) {
         super.attachScreen(screen);
+//        injector.inject(this);
+        bus.register(this);
     }
 
     @Override
     public void detachScreen() {
         super.detachScreen();
+        bus.unregister(this);
     }
 
-    void loginUser(String email, String password){
+    void loginUser(final String email, final String password) {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                userInteractor.loginUser(email, password);
+            }
+        });
+    }
 
+    public void onEventMainThread(LoginUserEvent event) {
+        if (event.getThrowable() != null) {
+            event.getThrowable().printStackTrace();
+            if (screen != null) {
+                screen.userLoginFailed("Something went wrong!");
+            }
+        } else {
+            if (screen != null) {
+                screen.userLoginOK("Successful login!");
+            }
+        }
     }
 }

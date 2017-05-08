@@ -1,15 +1,26 @@
 package hu.bme.iemqra.mobsoft.mobsoft.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by mobsoft on 2017. 04. 03..
  */
 
 public class User {
+    @SerializedName("id")
     private Long id = null;
-    private String firstName;
-    private String lastName;
-    private String password;
-    private String email;
+
+    @SerializedName("firstName")
+    private String firstName = null;
+
+    @SerializedName("lastName")
+    private String lastName = null;
+
+    @SerializedName("password")
+    private String password = null;
+
+    @SerializedName("email")
+    private String email = null;
 
     public User() {
     }

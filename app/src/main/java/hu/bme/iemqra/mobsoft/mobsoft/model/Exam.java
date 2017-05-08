@@ -2,20 +2,34 @@ package hu.bme.iemqra.mobsoft.mobsoft.model;
 
 import com.orm.dsl.Table;
 
-/**
- * Created by mobsoft on 2017. 04. 03..
- */
+import com.google.gson.annotations.SerializedName;
+
 
 @Table
 public class Exam {
+    @SerializedName("id")
     private Long id = null;
-    private String userId;
-    private String title;
-    private String description;
-    private String date;
-    private String place;
-    private String pageUrl;
-    private boolean isGlobal;
+
+    @SerializedName("userId")
+    private String userId = null;
+
+    @SerializedName("title")
+    private String title = null;
+
+    @SerializedName("description")
+    private String description = null;
+
+    @SerializedName("date")
+    private String date = null;
+
+    @SerializedName("place")
+    private String place = null;
+
+    @SerializedName("pageUrl")
+    private String pageUrl = null;
+
+    @SerializedName("isGlobal")
+    private Boolean isGlobal = null;
 
     public Exam() {
     }

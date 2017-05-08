@@ -25,7 +25,7 @@ public class UserInteractor {
         MobSoftApplication.injector.inject(this);
     }
 
-    public void loginUser() {
+    public void loginUser(String email, String password) {
         LoginUserEvent event = new LoginUserEvent();
         try {
             User user = repository.getUser();
