@@ -35,11 +35,11 @@
             android:padding="10dp" />
 
         <EditText
-            android:id="@+id/activity_register_username"
+            android:id="@+id/activity_register_mail"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Username"
+            android:hint="Email"
             android:inputType="text"
             android:padding="10dp" />
 
@@ -69,8 +69,9 @@
                 android:id="@+id/activity_register_btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="20dip"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:onClick="registration"
                 android:text="Sign up" />
         </RelativeLayout>
 
@@ -84,6 +85,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="40dip"
         android:background="@null"
+        android:onClick="navigateToLogin"
         android:text="Back to login"
         android:textAllCaps="false"
         android:textSize="15dp"

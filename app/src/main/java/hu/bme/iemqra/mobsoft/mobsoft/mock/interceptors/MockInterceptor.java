@@ -1,8 +1,5 @@
 package hu.bme.iemqra.mobsoft.mobsoft.mock.interceptors;
 
-/**
- * Created by mobsoft on 2017. 05. 08..
- */
 import android.net.Uri;
 import android.util.Log;
 
@@ -14,30 +11,30 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static hu.bme.iemqra.mobsoft.mobsoft.mock.interceptors.MockHelper.makeResponse;
+public class MockInterceptor implements Interceptor {
 
-public class MockInterceptor implements Interceptor{
-    @Override
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        return process(chain.request());
-    }
+	@Override
+	public Response intercept(Chain chain) throws IOException {
+		return process(chain.request());
+	}
 
-    public Response process(Request request) {
+	public Response process(Request request) {
 
-        Uri uri = Uri.parse(request.url().toString());
+		Uri uri = Uri.parse(request.url().toString());
 
-        Log.d("Test Http Client", "URL call: " + uri.toString());
-        Headers headers = request.headers();
+		Log.d("Test Http Client", "URL call: " + uri.toString());
+		Headers headers = request.headers();
 
 
-        if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "todo")) {
-            return ExamAppMock.process(request);
-        }
-
+		if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "todo")) {
+			return ExamMock.process(request);
+		}
 
 
 
-        return makeResponse(request, headers, 404, "Unknown");
 
-    }
+		return MockHelper.makeResponse(request, headers, 404, "Unknown");
+
+	}
+
 }

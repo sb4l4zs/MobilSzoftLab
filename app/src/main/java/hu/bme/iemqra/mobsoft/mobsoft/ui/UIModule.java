@@ -2,7 +2,6 @@ package hu.bme.iemqra.mobsoft.mobsoft.ui;
 
 import android.content.Context;
 
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -11,14 +10,10 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import de.greenrobot.event.EventBus;
-import hu.bme.iemqra.mobsoft.mobsoft.ui.details.DetailsPresenter;
+import hu.bme.iemqra.mobsoft.mobsoft.ui.detailed.DetailedPresenter;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.login.LoginPresenter;
 import hu.bme.iemqra.mobsoft.mobsoft.ui.main.MainPresenter;
-import hu.bme.iemqra.mobsoft.mobsoft.ui.registration.RegisterPresenter;
-
-/**
- * Created by mobsoft on 2017. 03. 20..
- */
+import hu.bme.iemqra.mobsoft.mobsoft.ui.registration.RegistrationPresenter;
 
 @Module
 public class UIModule {
@@ -47,14 +42,14 @@ public class UIModule {
 
     @Provides
     @Singleton
-    public RegisterPresenter provideRegisterPresenter() {
-        return new RegisterPresenter();
+    public RegistrationPresenter provideRegistrationPresenter() {
+        return new RegistrationPresenter();
     }
 
     @Provides
     @Singleton
-    public DetailsPresenter provideDetailsPresenter() {
-        return new DetailsPresenter();
+    public DetailedPresenter provideDetailedPresenter() {
+        return new DetailedPresenter();
     }
 
     @Provides
@@ -68,4 +63,6 @@ public class UIModule {
     public Executor provideExecutor() {
         return Executors.newFixedThreadPool(1);
     }
+
+
 }

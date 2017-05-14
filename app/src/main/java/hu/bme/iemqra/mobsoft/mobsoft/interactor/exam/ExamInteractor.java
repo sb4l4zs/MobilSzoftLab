@@ -9,27 +9,31 @@ import hu.bme.iemqra.mobsoft.mobsoft.MobSoftApplication;
 import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events.GetExamsEvent;
 import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events.RemoveExamEvent;
 import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events.SaveExamEvent;
+import hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events.UpdateExamEvent;
 import hu.bme.iemqra.mobsoft.mobsoft.model.Exam;
+import hu.bme.iemqra.mobsoft.mobsoft.network.api.AppApi;
 import hu.bme.iemqra.mobsoft.mobsoft.repository.Repository;
 
 /**
- * Created by mobsoft on 2017. 04. 03..
+ * Created by Balazs on 2017. 05. 14..
  */
 
-public class ExamsInteractor {
+public class ExamInteractor {
     @Inject
     Repository repository;
     @Inject
     EventBus bus;
+    @Inject
+    AppApi appApi;
 
-    public ExamsInteractor() {
+    public ExamInteractor() {
         MobSoftApplication.injector.inject(this);
     }
 
-    public void getExams() {
+    public void getExams(String userId) {
         GetExamsEvent event = new GetExamsEvent();
         try {
-            List<Exam> exams = repository.getExams();
+            List<Exam> exams = repository.getExams(userId);
             event.setExams(exams);
             bus.post(event);
         } catch (Exception e) {
@@ -38,12 +42,12 @@ public class ExamsInteractor {
         }
     }
 
-    public void saveExam(Exam exam) {
+    public void addExam(Exam exam) {
 
         SaveExamEvent event = new SaveExamEvent();
         event.setExam(exam);
         try {
-            repository.saveExam(exam);
+            repository.addExam(exam);
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);
@@ -51,11 +55,14 @@ public class ExamsInteractor {
         }
     }
 
-    public void updateExams(List<Exam> exams) {
+    public void updateExam(Exam exam) {
+        UpdateExamEvent event = new UpdateExamEvent();
         try {
-            repository.updateExams(exams);
+            repository.updateExam(exam);
+            bus.post(event);
         } catch (Exception e) {
-            e.printStackTrace();
+            event.setThrowable(e);
+            bus.post(event);
         }
     }
 

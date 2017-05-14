@@ -1,5 +1,6 @@
 package hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events;
 
+
 import hu.bme.iemqra.mobsoft.mobsoft.model.Exam;
 
 /**

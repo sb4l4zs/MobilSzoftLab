@@ -1,16 +1,11 @@
 package hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events;
 
-
-/**
- * Created by mobsoft on 2017. 04. 03..
- */
-
-public class RegisterUserEvent {
+public class UpdateExamEvent {
     private int code;
-    private long userId;
+    private String text;
     private Throwable throwable;
 
-    public RegisterUserEvent() {
+    public UpdateExamEvent() {
     }
 
     public int getCode() {
@@ -21,12 +16,12 @@ public class RegisterUserEvent {
         this.code = code;
     }
 
-    public long getUserId() {
-        return userId;
+    public String getText() {
+        return text;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public Throwable getThrowable() {
@@ -34,6 +29,13 @@ public class RegisterUserEvent {
     }
 
     public void setThrowable(Throwable throwable) {
+        this.throwable = throwable;
+    }
+
+    public UpdateExamEvent(int code, String text, Throwable throwable) {
+
+        this.code = code;
+        this.text = text;
         this.throwable = throwable;
     }
 }

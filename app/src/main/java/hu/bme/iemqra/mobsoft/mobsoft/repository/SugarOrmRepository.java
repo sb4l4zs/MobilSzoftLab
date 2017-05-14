@@ -11,10 +11,6 @@ import java.util.List;
 import hu.bme.iemqra.mobsoft.mobsoft.model.Exam;
 import hu.bme.iemqra.mobsoft.mobsoft.model.User;
 
-/**
- * Created by mobsoft on 2017. 04. 03..
- */
-
 public class SugarOrmRepository implements Repository {
 
     @Override
@@ -28,8 +24,13 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
-    public User getUser() {
+    public User getUser(String username, String password) {
         return SugarRecord.listAll(User.class).get(0);
+    }
+
+    @Override
+    public long registerUser(String firstName, String lastName, String username, String password) {
+        return 0;
     }
 
     @Override
@@ -38,18 +39,18 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
-    public List<Exam> getExams() {
+    public List<Exam> getExams(String userId) {
         return SugarRecord.listAll(Exam.class);
     }
 
     @Override
-    public void saveExam(Exam exam) {
+    public void addExam(Exam exam) {
         SugarRecord.saveInTx(exam);
     }
 
     @Override
     public void updateExams(List<Exam> exams) {
-        List<Exam> examsToUpdate = getExams();
+        List<Exam> examsToUpdate = getExams("");
         List<Exam> toUpdate = new ArrayList<>(examsToUpdate.size());
         for (Exam examToUpdate : examsToUpdate) {
             for (Exam exam : exams) {
@@ -79,4 +80,5 @@ public class SugarOrmRepository implements Repository {
     public boolean isInDB(Exam exam) {
         return SugarRecord.findById(Exam.class, exam.getId()) != null;
     }
+
 }

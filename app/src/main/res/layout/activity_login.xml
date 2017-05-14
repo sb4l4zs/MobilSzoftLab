@@ -45,6 +45,7 @@
         android:layout_below="@id/activity_login_password"
         android:layout_centerInParent="true"
         android:layout_marginTop="15dp"
+        android:onClick="login"
         android:text="Login" />
 
 
@@ -54,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@null"
+        android:onClick="navigateToRegistration"
         android:text="Sign up"
         android:textAllCaps="false"
         android:textSize="15dp"

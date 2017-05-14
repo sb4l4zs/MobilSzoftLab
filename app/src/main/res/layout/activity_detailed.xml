@@ -29,10 +29,34 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/detail_date_frame"
+        android:id="@+id/detail_desc_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/detail_title_frame">
+
+        <TextView
+            android:id="@+id/detail_desc_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="Description:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/detail_desc_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/detail_desc_label" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/detail_date_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_desc_frame">
 
         <TextView
             android:id="@+id/detail_date_label"
@@ -136,6 +160,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dip"
+            android:onClick="modifyExam"
             android:text="Modify"
             android:textAllCaps="false" />
 
@@ -147,6 +172,7 @@
             android:layout_marginTop="40dip"
             android:layout_toLeftOf="@+id/detail_button_modify"
             android:layout_toStartOf="@+id/detail_button_modify"
+            android:onClick="deleteExam"
             android:text="Delete"
             android:textAllCaps="false" />
 
@@ -158,6 +184,7 @@
             android:layout_marginTop="40dip"
             android:layout_toEndOf="@+id/detail_button_modify"
             android:layout_toRightOf="@+id/detail_button_modify"
+            android:onClick="addNewExam"
             android:text="Add"
             android:textAllCaps="false" />
     </RelativeLayout>

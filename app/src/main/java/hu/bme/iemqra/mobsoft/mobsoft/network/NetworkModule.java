@@ -1,19 +1,19 @@
 package hu.bme.iemqra.mobsoft.mobsoft.network;
 
+
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
-import hu.bme.iemqra.mobsoft.mobsoft.network.api.ExamAppApi;
+import hu.bme.iemqra.mobsoft.mobsoft.network.api.AppApi;
 import hu.bme.iemqra.mobsoft.mobsoft.utils.GsonHelper;
 import okhttp3.OkHttpClient;
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
 
-/**
- * Created by mobsoft on 2017. 05. 08..
- */
-
+@Module
 public class NetworkModule {
+
     @Provides
     @Singleton
     public OkHttpClient.Builder provideOkHttpClientBuilder() {
@@ -36,7 +36,10 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    public ExamAppApi provideATodoApi(Retrofit retrofit) {
-        return retrofit.create(ExamAppApi.class);
+    public AppApi provideATodoApi(Retrofit retrofit) {
+        return retrofit.create(AppApi.class);
     }
+
+
 }
+

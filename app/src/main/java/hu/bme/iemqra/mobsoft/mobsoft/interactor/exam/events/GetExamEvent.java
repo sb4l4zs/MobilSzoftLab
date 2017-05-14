@@ -1,16 +1,20 @@
 package hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events;
 
+import hu.bme.iemqra.mobsoft.mobsoft.model.Exam;
 
-/**
- * Created by mobsoft on 2017. 04. 03..
- */
 
-public class RegisterUserEvent {
+public class GetExamEvent {
     private int code;
-    private long userId;
+    private Exam exam;
     private Throwable throwable;
 
-    public RegisterUserEvent() {
+    public GetExamEvent() {
+    }
+
+    public GetExamEvent(int code, Exam exam, Throwable throwable) {
+        this.code = code;
+        this.exam = exam;
+        this.throwable = throwable;
     }
 
     public int getCode() {
@@ -21,12 +25,12 @@ public class RegisterUserEvent {
         this.code = code;
     }
 
-    public long getUserId() {
-        return userId;
+    public Exam getExam() {
+        return exam;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setExam(Exam exam) {
+        this.exam = exam;
     }
 
     public Throwable getThrowable() {

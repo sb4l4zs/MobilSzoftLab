@@ -1,9 +1,7 @@
 package hu.bme.iemqra.mobsoft.mobsoft.interactor.exam.events;
 
-import java.util.List;
-
-import hu.bme.iemqra.mobsoft.mobsoft.model.Exam;
 import hu.bme.iemqra.mobsoft.mobsoft.model.User;
+
 
 /**
  * Created by mobsoft on 2017. 04. 03..

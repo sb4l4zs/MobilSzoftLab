@@ -7,22 +7,21 @@ import java.util.List;
 import hu.bme.iemqra.mobsoft.mobsoft.model.Exam;
 import hu.bme.iemqra.mobsoft.mobsoft.model.User;
 
-/**
- * Created by mobsoft on 2017. 04. 03..
- */
-
 public interface Repository {
+
     void open(Context context);
 
     void close();
 
-    User getUser();
+    User getUser(String username, String password);
+
+    long registerUser(String firstName, String lastName, String username, String password);
 
     void removeUser();
 
-    List<Exam> getExams();
+    List<Exam> getExams(String userId);
 
-    void saveExam(Exam exam);
+    void addExam(Exam exam);
 
     void updateExams(List<Exam> exams);
 

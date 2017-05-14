@@ -22,13 +22,10 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     @Inject
     EventBus bus;
 
-    public LoginPresenter() {
-    }
-
     @Override
     public void attachScreen(LoginScreen screen) {
         super.attachScreen(screen);
-//        injector.inject(this);
+        injector.inject(this);
         bus.register(this);
     }
 
@@ -55,7 +52,11 @@ public class LoginPresenter extends Presenter<LoginScreen> {
             }
         } else {
             if (screen != null) {
-                screen.userLoginOK("Successful login!");
+                if (event.getUser() != null) {
+                    screen.userLoginOK(event.getUser().getEmail());
+                } else {
+                    screen.userLoginFailed("Wrong password or non existing user!");
+                }
             }
         }
     }
