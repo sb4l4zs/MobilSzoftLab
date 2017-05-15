@@ -39,7 +39,7 @@
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="" />
+            android:value="70088c7ba135b707f6fb0b1dd0c352fd35e23b2f" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
